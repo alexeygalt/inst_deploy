@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+    image: alexeygalt/inst_docker
+    ports:
+      - 80:80
+
+
