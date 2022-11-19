@@ -23,10 +23,10 @@ jobs:
           cat docker-compose-ci.yaml | envsubst > inst_deploy/docker-compose.yaml
       - name: copy files to server
         uses: appleboy/ssh-action@master
-          with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USERNAME }}
-            password: ${{ secrets.PASSWORD }}
-            source: "inst_deploy/docker-compose.yaml"
-            target: "inst_app_ci"
-            strip_components: 1
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          source: "inst_deploy/docker-compose.yaml"
+          target: "inst_app_ci"
+          strip_components: 1
