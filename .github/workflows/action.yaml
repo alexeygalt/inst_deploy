@@ -18,9 +18,9 @@ jobs:
       - name: clone code
         uses: actions/checkout@v2
       - name: render configs
-          run: |
-            mkdir deploy
-            cat docker-compose-ci.yaml | envsubst > inst_deploy/docker-compose.yaml
+        run: |
+          mkdir deploy
+          cat docker-compose-ci.yaml | envsubst > inst_deploy/docker-compose.yaml
       - name: copy files to server
         uses: appleboy/ssh-action@master
           with:
