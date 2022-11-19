@@ -14,13 +14,14 @@ jobs:
         run: docker push alexeygalt/inst_docker:$GITHUB_REF_NAME-$GITHUB_RUN_ID
   deploy:
     runs-on: ubuntu-latest
+    needs: build_and_push
     steps:
       - name: clone code
         uses: actions/checkout@v2
       - name: render configs
         run: |
           mkdir deploy
-          cat docker-compose-ci.yaml | envsubst > inst_deploy/docker-compose.yaml
+          cat docker-compose-ci.yaml | envsubst > deploy/docker-compose.yaml
       - name: copy files to server
         uses: appleboy/ssh-action@master
         with:
