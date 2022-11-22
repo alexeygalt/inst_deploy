@@ -39,5 +39,6 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             cd inst_app_ci
-            echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d 
+            echo ${{ secrets.PASSWORD }} | sudo -S docker-compose down
+#            echo ${{ secrets.PASSWORD }} | sudo -S docker-compose up -d
               
